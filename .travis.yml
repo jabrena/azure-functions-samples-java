@@ -12,11 +12,5 @@ notifications:
     - bren@juanantonio.info
 script:
 - ./mvnw clean package
-- docker build -t azure_function_image .
-- docker run -p 80:80 --sysctl net.ipv6.conf.all.disable_ipv6=1 --name azure_function_image azure_function_image &
-- sleep 40
-- source assert.sh
-- assert "curl localhost:80/api/HttpTrigger-Java -d Azure" "Hello, Azure"
-- docker ps -a
-- docker stop azure_function_image
-- docker rm azure_function_image
+- source ./scripts/assert.sh
+- source ./scripts/e2e_travis_tests.sh
