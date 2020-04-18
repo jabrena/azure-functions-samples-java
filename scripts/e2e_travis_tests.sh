@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Load dependency (bash unit testing framework)
-source ./assert.sh
+source ./scripts/assert.sh
 
 # Build docker
 docker build -t azure_function_image .
