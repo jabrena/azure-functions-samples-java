@@ -12,4 +12,5 @@ notifications:
     - bren@juanantonio.info
 script:
 - ./mvnw clean package
+- source ./scripts/assert.sh
 - ./scripts/e2e_travis_tests.sh
