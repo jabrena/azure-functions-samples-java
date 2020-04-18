@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#Load dependency (bash unit testing framework)
+#https://github.com/lehmannro/assert.sh
 source ./scripts/assert.sh
 
 # Build docker
@@ -8,6 +10,7 @@ docker run -p 80:80 --sysctl net.ipv6.conf.all.disable_ipv6=1 --name azure_funct
 sleep 40
 
 #e2e test
+echo "Asserts"
 assert "curl localhost:80/api/HttpTrigger-Java -d Azure" "Hello, Azure"
 
 #cleanup
