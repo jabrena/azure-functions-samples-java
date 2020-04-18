@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#Load dependency (bash unit testing framework)
+source ./assert.sh
+
 # Build docker
 docker build -t azure_function_image .
 docker run -p 80:80 --sysctl net.ipv6.conf.all.disable_ipv6=1 --name azure_function_image azure_function_image &
