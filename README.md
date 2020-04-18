@@ -40,7 +40,7 @@ az login
 az account set -s <your subscription id>
 ```
 
-## Running the sample
+## Running the sample in local
 
 ```cmd
 ./mvnw clean package azure-functions:run
@@ -48,6 +48,14 @@ az account set -s <your subscription id>
 
 ```cmd
 ./gradlew clean azureFunctionsRun
+```
+
+## Running the sample with Docker
+
+```
+mvn clean package
+docker build -t azure_function_image .
+docker run -p 80:80 --sysctl net.ipv6.conf.all.disable_ipv6=1 --name azure_function_image azure_function_image
 ```
 
 ## Deploy the sample on Azure
